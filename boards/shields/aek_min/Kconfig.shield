@@ -1,2 +1,3 @@
 config SHIELD_AEK_MIN
     bool "AEK minimal breadboard shield"
+    select ZMK_GPIO_595
