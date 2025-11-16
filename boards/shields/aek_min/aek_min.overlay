@@ -1,0 +1,69 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+};
+
+/* -------------------------------------------
+ * 74HC595 shift register using SPI0
+ * Pins match original minimal example:
+ *   SERIAL = pad1
+ *   CLK    = pad2
+ *   LATCH  = pad5
+ * ------------------------------------------- */
+
+/* We map the 74HC595 to SPI0.
+ *   MOSI = SERIAL (pad1)
+ *   SCK  = CLK    (pad2)
+ *   CS   = LATCH  (pad5)
+ */
+
+&spi0 {
+    status = "okay";
+
+    /* CS/LATCH on pad5 */
+    cs-gpios = <&pro_micro 5 GPIO_ACTIVE_LOW>;
+
+    shifter: gpio595@0 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+        reg = <0>;
+        spi-max-frequency = <200000>;
+
+        gpio-controller;
+        #gpio-cells = <2>;
+        ngpios = <8>;
+    };
+};
+
+/* -------------------------------------------
+ * Minimal 3×3 Matrix (exactly matching pins)
+ * -------------------------------------------
+ * Col0 → shifter Q0
+ * Col1 → shifter Q1
+ * Col3 → direct MCU on pad16
+ *
+ * Row0 → pad6
+ * Row1 → pad7
+ * Row2 → pad20
+ *
+ * Diode direction: col2row (matches your PCB)
+ * ------------------------------------------- */
+
+kscan0: kscan_0 {
+    compatible = "zmk,kscan-gpio-matrix";
+    diode-direction = "col2row";
+    wakeup-source;
+
+    /* Columns: 2 from 74HC595, 1 direct */
+    col-gpios =
+        <&shifter 0 GPIO_ACTIVE_HIGH>,   /* Col0 from 595 Q0 */
+        <&shifter 1 GPIO_ACTIVE_HIGH>,   /* Col1 from 595 Q1 */
+        <&pro_micro 16 GPIO_ACTIVE_HIGH>;/* Col3 direct → pad16 */
+
+    /* Rows from MCU */
+    row-gpios =
+        <&pro_micro 6 GPIO_ACTIVE_HIGH>,   /* Row0 → pad6 */
+        <&pro_micro 7 GPIO_ACTIVE_HIGH>,   /* Row1 → pad7 */
+        <&pro_micro 20 GPIO_ACTIVE_HIGH>;  /* Row2 → pad20 */
+};

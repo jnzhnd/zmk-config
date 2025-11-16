@@ -1,0 +1,2 @@
+config SHIELD_AEK_MIN
+    bool "AEK minimal breadboard shield"
