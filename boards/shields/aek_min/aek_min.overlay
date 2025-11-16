@@ -4,6 +4,40 @@
     chosen {
         zmk,kscan = &kscan0;
     };
+
+    /*
+     * Minimal 3×3 matrix:
+     *
+     * Columns:
+     *   Col0 -> shifter Q0 (output 0)
+     *   Col1 -> shifter Q1 (output 1)
+     *   Col3 -> direct MCU pin on pad 16
+     *
+     * Rows:
+     *   Row0 -> pad 6
+     *   Row1 -> pad 7
+     *   Row2 -> pad 20
+     *
+     * Diodes: col2row (Row ->|— diode — switch — Column),
+     * matching your PCB design.
+     */
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        wakeup-source;
+
+        /* Columns: two from 595, one direct */
+        col-gpios =
+            <&shifter 0 GPIO_ACTIVE_HIGH>,   /* Col0 from 74HC595 Q0 */
+            <&shifter 1 GPIO_ACTIVE_HIGH>,   /* Col1 from 74HC595 Q1 */
+            <&pro_micro 16 GPIO_ACTIVE_HIGH>;/* Col3 directly from pad 16 */
+
+        /* Rows: three MCU pins */
+        row-gpios =
+            <&pro_micro 6  GPIO_ACTIVE_HIGH>,  /* Row0 -> pad 6 */
+            <&pro_micro 7  GPIO_ACTIVE_HIGH>,  /* Row1 -> pad 7 */
+            <&pro_micro 20 GPIO_ACTIVE_HIGH>;  /* Row2 -> pad 20 */
+    };
 };
 
 /*
@@ -36,39 +70,4 @@
         spi-max-frequency = <200000>;
         reg = <0>;
     };
-};
-
-/*
- * Minimal 3×3 matrix:
- *
- * Columns:
- *   Col0 -> shifter Q0 (output 0)
- *   Col1 -> shifter Q1 (output 1)
- *   Col3 -> direct MCU pin on pad 16
- *
- * Rows:
- *   Row0 -> pad 6
- *   Row1 -> pad 7
- *   Row2 -> pad 20
- *
- * Diodes: col2row (Row ->|— diode — switch — Column),
- * matching your PCB design.
- */
-
-kscan0: kscan_0 {
-    compatible = "zmk,kscan-gpio-matrix";
-    diode-direction = "col2row";
-    wakeup-source;
-
-    /* Columns: two from 595, one direct */
-    col-gpios =
-        <&shifter 0 GPIO_ACTIVE_HIGH>,   /* Col0 from 74HC595 Q0 */
-        <&shifter 1 GPIO_ACTIVE_HIGH>,   /* Col1 from 74HC595 Q1 */
-        <&pro_micro 16 GPIO_ACTIVE_HIGH>;/* Col3 directly from pad 16 */
-
-    /* Rows: three MCU pins */
-    row-gpios =
-        <&pro_micro 6  GPIO_ACTIVE_HIGH>,  /* Row0 -> pad 6 */
-        <&pro_micro 7  GPIO_ACTIVE_HIGH>,  /* Row1 -> pad 7 */
-        <&pro_micro 20 GPIO_ACTIVE_HIGH>;  /* Row2 -> pad 20 */
 };
