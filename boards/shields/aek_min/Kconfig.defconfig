@@ -1,7 +1,7 @@
 if SHIELD_AEK_MIN
 
 config ZMK_KEYBOARD_NAME
-    default "AEK minimal breadboard"
+    default "AEK-min"
 
 config SPI
     default y
