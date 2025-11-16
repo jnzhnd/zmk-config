@@ -1,3 +1,36 @@
+/*
+ * Shift register configuration for 74HC595 on a Pro Micro–style board
+ * (nice_nano_v2). We use:
+ *
+ *   SERIAL (data)  -> pad 1
+ *   CLK    (clock) -> pad 2
+ *   LATCH  (CS)    -> pad 5
+ *
+ * The base board DTS provides &pro_micro_spi, which is the SPI bus
+ * exposed on the Pro Micro pins. We attach our 595 as a device on
+ * that bus.
+ */
+
+&pro_micro_spi {
+    status = "okay";
+
+    /* LATCH/CS on pad 5 */
+    cs-gpios = <&pro_micro 5 GPIO_ACTIVE_LOW>;
+
+    shifter: gpio595@0 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+
+        gpio-controller;
+        #gpio-cells = <2>;
+        ngpios = <8>;
+
+        spi-max-frequency = <200000>;
+        reg = <0>;
+    };
+};
+
+
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -35,37 +68,5 @@
             <&pro_micro 6  GPIO_ACTIVE_HIGH>,  /* Row0 -> pad 6 */
             <&pro_micro 7  GPIO_ACTIVE_HIGH>,  /* Row1 -> pad 7 */
             <&pro_micro 20 GPIO_ACTIVE_HIGH>;  /* Row2 -> pad 20 */
-    };
-};
-
-/*
- * Shift register configuration for 74HC595 on a Pro Micro–style board
- * (nice_nano_v2). We use:
- *
- *   SERIAL (data)  -> pad 1
- *   CLK    (clock) -> pad 2
- *   LATCH  (CS)    -> pad 5
- *
- * The base board DTS provides &pro_micro_spi, which is the SPI bus
- * exposed on the Pro Micro pins. We attach our 595 as a device on
- * that bus.
- */
-
-&pro_micro_spi {
-    status = "okay";
-
-    /* LATCH/CS on pad 5 */
-    cs-gpios = <&pro_micro 5 GPIO_ACTIVE_LOW>;
-
-    shifter: gpio595@0 {
-        compatible = "zmk,gpio-595";
-        status = "okay";
-
-        gpio-controller;
-        #gpio-cells = <2>;
-        ngpios = <8>;
-
-        spi-max-frequency = <200000>;
-        reg = <0>;
     };
 };
