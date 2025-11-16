@@ -65,8 +65,8 @@
 
         /* Rows: three MCU pins */
         row-gpios =
-            <&pro_micro 6  GPIO_ACTIVE_HIGH>,  /* Row0 -> pad 6 */
-            <&pro_micro 7  GPIO_ACTIVE_HIGH>,  /* Row1 -> pad 7 */
-            <&pro_micro 20 GPIO_ACTIVE_HIGH>;  /* Row2 -> pad 20 */
+            <&pro_micro 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&pro_micro 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 };
