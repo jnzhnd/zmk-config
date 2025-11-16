@@ -1,0 +1,16 @@
+if SHIELD_AEK_MIN
+
+config SPI
+    default y
+
+config GPIO
+    default y
+
+config ZMK_GPIO_595
+    default y
+
+# Optional, but typical:
+config ZMK_KEYBOARD_NAME
+    default "AEK min"
+
+endif

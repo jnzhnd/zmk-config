@@ -1,4 +1,0 @@
-config SPI
-    default y
-config GPIO
-    default y

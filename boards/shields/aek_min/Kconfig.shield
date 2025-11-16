@@ -1,3 +1,2 @@
 config SHIELD_AEK_MIN
-    bool "AEK minimal breadboard shield"
-    select ZMK_GPIO_595
+    def_bool $(shields_list_contains,aek_min)

@@ -20,6 +20,3 @@
 ---
 board: [ "nice_nano_v2" ]
 shield: [ "aek_min" ]
-include:
-  - board: nice_nano_v2
-    shield: aek_min
