@@ -59,7 +59,7 @@
     /* LATCH/CS on pad 5 */
     cs-gpios = <&pro_micro 5 GPIO_ACTIVE_LOW>;
 
-    shifter: 595@0 {
+    shifter: gpio595@0 {
         compatible = "zmk,gpio-595";
         status = "okay";
 
