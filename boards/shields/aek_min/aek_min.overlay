@@ -14,7 +14,7 @@
 &pro_micro_spi {
     status = "okay";
 
-    /* LATCH/CS on pad 5 */
+    /* LATCH/CS on pad 5 SHOULD BE 2!! */
     cs-gpios = <&pro_micro 5 GPIO_ACTIVE_LOW>;
 
     shifter: gpio595@0 {
@@ -59,9 +59,9 @@
 
         /* Columns: two from 595, one direct */
         col-gpios =
-            <&shifter 0 GPIO_ACTIVE_HIGH>,   /* Col0 from 74HC595 Q0 */
-            <&shifter 1 GPIO_ACTIVE_HIGH>,   /* Col1 from 74HC595 Q1 */
-            <&pro_micro 16 GPIO_ACTIVE_HIGH>;/* Col3 directly from pad 16 */
+            <&pro_micro 16 GPIO_ACTIVE_HIGH>,   /* Col0 from 74HC595 Q0 */
+            <&pro_micro 15 GPIO_ACTIVE_HIGH>,   /* Col1 from 74HC595 Q1 */
+            <&pro_micro 14 GPIO_ACTIVE_HIGH>;/* Col3 directly from pad 16 */
 
         /* Rows: three MCU pins */
         row-gpios =
