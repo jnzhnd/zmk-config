@@ -1,15 +1,15 @@
 &pro_micro_spi {
-    status = "okay";
-    cs-gpios = <&pro_micro 10 GPIO_ACTIVE_LOW>;  /*LATCH/CS/MISO*/
-    shifter: gpio595@0 {
-        compatible = "zmk,gpio-595";
-        status = "okay";
-        gpio-controller;
-        spi-max-frequency = <200000>;
-        reg = <0>;
+	status = "okay";
+	cs-gpios = <&pro_micro 10 GPIO_ACTIVE_LOW>; /*LATCH*/
+	shifter: 595@0 {
+		compatible = "zmk,gpio-595";
+		status = "okay";
+		gpio-controller;
+		spi-max-frequency = <200000>;
+		reg = <0>;
         #gpio-cells = <2>;
-        ngpios = <8>;      
-    };
+		ngpios = <8>;
+	};
 };
 
 
