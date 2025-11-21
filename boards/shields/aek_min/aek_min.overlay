@@ -14,8 +14,8 @@
 &pro_micro_spi {
     status = "okay";
 
-    /* LATCH/CS on pad 5 SHOULD BE 2!! */
-    cs-gpios = <&pro_micro 2 GPIO_ACTIVE_LOW>;
+    /* LATCH/CS */
+    cs-gpios = <&pro_micro 1 GPIO_ACTIVE_LOW>;
 
     shifter: gpio595@0 {
         compatible = "zmk,gpio-595";
