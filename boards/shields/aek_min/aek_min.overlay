@@ -1,32 +1,14 @@
-/*
- * Shift register configuration for 74HC595 on a Pro Micro–style board
- * (nice_nano_v2). We use:
- *
- *   SERIAL (data)  -> pad 1
- *   CLK    (clock) -> pad 2
- *   LATCH  (CS)    -> pad 5
- *
- * The base board DTS provides &pro_micro_spi, which is the SPI bus
- * exposed on the Pro Micro pins. We attach our 595 as a device on
- * that bus.
- */
-
-&spi1 {
+&pro_micro_spi {
     status = "okay";
-
-    /* LATCH/CS */
-    cs-gpios = <&pro_micro 2 GPIO_ACTIVE_LOW>;
-
-    shifter: gpio595@0 {
+    cs-gpios = <&pro_micro 14 GPIO_ACTIVE_LOW>;
+    shifter: gpio595@0 {  /*The @0 number marks the index of the cs-gpios pin used to control a device.*/
         compatible = "zmk,gpio-595";
-        status = "okay";
-
+        status = "okay"
         gpio-controller;
-        #gpio-cells = <2>;
-        ngpios = <8>;
-
         spi-max-frequency = <200000>;
         reg = <0>;
+        #gpio-cells = <2>;
+        ngpios = <8>;      
     };
 };
 
@@ -36,34 +18,16 @@
         zmk,kscan = &kscan0;
     };
 
-    /*
-     * Minimal 3×3 matrix:
-     *
-     * Columns:
-     *   Col0 -> shifter Q0 (output 0)
-     *   Col1 -> shifter Q1 (output 1)
-     *   Col3 -> direct MCU pin on pad 16
-     *
-     * Rows:
-     *   Row0 -> pad 6
-     *   Row1 -> pad 7
-     *   Row2 -> pad 20
-     *
-     * Diodes: col2row (Row ->|— diode — switch — Column),
-     * matching your PCB design.
-     */
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
         wakeup-source;
 
-        /* Columns: two from 595, one direct */
         col-gpios =
-            <&shifter 0 GPIO_ACTIVE_HIGH>,   /* Col0 from 74HC595 Q0 */
-            <&shifter 1 GPIO_ACTIVE_HIGH>,   /* Col1 from 74HC595 Q1 */
-            <&pro_micro 16 GPIO_ACTIVE_HIGH>;/* Col3 directly from pad 16 */
+            <&shifter 0 GPIO_ACTIVE_HIGH>,
+            <&shifter 1 GPIO_ACTIVE_HIGH>,
+            <&pro_micro 16 GPIO_ACTIVE_HIGH>;
 
-        /* Rows: three MCU pins */
         row-gpios =
             <&pro_micro 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&pro_micro 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
