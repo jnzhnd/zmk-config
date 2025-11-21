@@ -1,7 +1,7 @@
 &pro_micro_spi {
     status = "okay";
-    cs-gpios = <&pro_micro 14 GPIO_ACTIVE_LOW>;
-    shifter: gpio595@0 {  /*The @0 number marks the index of the cs-gpios pin used to control a device.*/
+    cs-gpios = <&pro_micro 10 GPIO_ACTIVE_LOW>;  /*LATCH/CS/MISO*/
+    shifter: gpio595@0 {
         compatible = "zmk,gpio-595";
         status = "okay";
         gpio-controller;
