@@ -15,7 +15,7 @@
     status = "okay";
 
     /* LATCH/CS */
-    cs-gpios = <&pro_micro 1 GPIO_ACTIVE_LOW>;
+    cs-gpios = <&pro_micro 0 GPIO_ACTIVE_LOW>;
 
     shifter: gpio595@0 {
         compatible = "zmk,gpio-595";
