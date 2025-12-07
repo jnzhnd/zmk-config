@@ -18,6 +18,5 @@
 #     artifact-name: corne_left_with_studio
 #
 ---
-include:
-  - board: nice_nano_v2
-    shield: aek_min
+board: [ "nice_nano_v2" ]
+shield: [ "aek_min" ]
