@@ -12,13 +12,13 @@
             bindings = <
                 &kp ESC
                 &kp F1
-                &kp DE_GRAVE
                 &kp DE_N1
+                &kp DE_LESS_THAN
                 &kp DE_Q
                 &kp TAB
                 &kp DE_A
                 &kp CAPSLOCK
-                &kp DE_LESS_THAN
+                &kp DE_GREATER_THAN
                 &kp LEFT_SHIFT
                 &kp LEFT_ALT
                 &kp LEFT_CONTROL
