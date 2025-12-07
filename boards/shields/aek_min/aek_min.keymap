@@ -10,18 +10,18 @@
             display-name = "Base";
 
             bindings = <
-                &kp F1
                 &kp ESC
-                &kp 1
-                &kp GRAVE
+                &kp F1
+                &kp DE_GRAVE
+                &kp DE_N1
+                &kp DE_Q
                 &kp TAB
-                &kp Q
+                &kp DE_A
                 &kp CAPSLOCK
-                &kp A
+                &kp DE_LESS_THAN
                 &kp LEFT_SHIFT
-                &kp LESS_THAN
-                &kp LEFT_CONTROL
                 &kp LEFT_ALT
+                &kp LEFT_CONTROL
             >;
         };
     };
