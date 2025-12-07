@@ -13,6 +13,7 @@
                 &kp F1
                 &kp ESC
                 &kp 1
+                &kp GRAVE
             >;
         };
     };
