@@ -14,6 +14,14 @@
                 &kp ESC
                 &kp 1
                 &kp GRAVE
+                &kp TAB
+                &kp Q
+                &kp CAPSLOCK
+                &kp A
+                &kp LEFT_SHIFT
+                &kp LESS_THAN
+                &kp LEFT_CONTROL
+                &kp LEFT_ALT
             >;
         };
     };
