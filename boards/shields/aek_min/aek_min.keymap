@@ -1,15 +1,18 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include "keys_de_swiss.h"
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        default_layer { // LAYER 0
+            display-name = "Base";
+
             bindings = <
-                &kp Q   &kp W   &kp E
-                &kp A   &kp S   &kp D
-                &kp Z   &kp X   &kp C
+                &kp F1
+                &kp ESC
+                &kp 1
             >;
         };
     };
