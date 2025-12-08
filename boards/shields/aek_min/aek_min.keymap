@@ -3,15 +3,6 @@
 #include "keys_de_swiss.h"
 
 / {
-    behaviors {
-        caps_with_led: behavior_bindings {
-            compatible = "zmk,behavior-bindings";
-            bindings = <&kp CAPSLOCK &capslock_out>;
-        };
-    };
-};
-
-/ {
     keymap {
         compatible = "zmk,keymap";
 

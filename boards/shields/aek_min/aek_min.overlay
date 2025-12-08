@@ -70,30 +70,3 @@
         >;
     };
 };
-
-/ {
-    leds {
-        compatible = "gpio-leds";
-
-        capslock_led: capslock_led {
-            gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
-        };
-        // numlock_led: numlock_led {
-        //     gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
-        // };
-    };
-};
-
-&capslock_led {
-    status = "okay";
-};
-// &numlock_led {
-//     status = "okay";
-// };
-
-/ {
-    aliases {
-        /* Alias used by keymap to toggle the Caps Lock LED */
-        capslock_out = &capslock_led;
-    };
-};
