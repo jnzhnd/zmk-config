@@ -10,18 +10,18 @@
             display-name = "Base";
 
             bindings = <
-                &kp ESC
-                &kp F1
-                &kp DE_N1
-                &kp DE_LESS_THAN
-                &kp DE_Q
-                &kp TAB
-                &kp DE_A
-                &kp CAPSLOCK
-                &kp DE_GREATER_THAN
-                &kp LEFT_SHIFT
-                &kp LEFT_ALT
-                &kp LEFT_CONTROL
+                &kp F1   &kp F3
+                &kp ESC   &kp F2
+                &kp DE_N1   &kp DE_N3
+                &kp DE_LESS_THAN   &kp DE_N2
+                &kp DE_Q   &kp DE_E
+                &kp TAB   &kp DE_W
+                &kp DE_A   &kp DE_D
+                &kp CAPSLOCK   &kp DE_S
+                &kp DE_GREATER_THAN  &kp DE_X
+                &kp LEFT_SHIFT   &kp DE_Y
+                &kp LEFT_ALT   &none
+                &kp LEFT_CONTROL   &kp LEFT_GUI
             >;
         };
     };
