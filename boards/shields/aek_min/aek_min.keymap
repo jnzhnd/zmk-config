@@ -20,8 +20,8 @@
                 &kp CAPSLOCK   &kp DE_S
                 &kp DE_GREATER_THAN  &kp DE_X
                 &kp LEFT_SHIFT   &kp DE_Y
-                &kp LEFT_ALT   &none
-                &kp LEFT_CONTROL   &kp LEFT_GUI
+                &kp LEFT_ALT   &kp LEFT_GUI
+                &kp LEFT_CONTROL   &none
             >;
         };
     };
