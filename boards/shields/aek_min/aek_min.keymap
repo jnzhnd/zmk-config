@@ -12,7 +12,7 @@
             bindings = <
                 &kp ESC         &kp F1 &kp F2 &kp F3 &kp F4     &kp F5 &kp F6 &kp F7 &kp F8     &kp F9 &kp F10 &kp F11 &kp F12              &kp F13 &kp F14 &kp F15                                                                                                  &studio_unlock 
                 
-                &kp DE_LESS_THAN   &kp DE_N1 &kp DE_N2 &kp DE_N3 &kp DE_N4 &kp DE_N5 &kp DE_N6 &kp DE_N7 &kp DE_N8 &kp DE_N9 &kp DE_N0 &kp DE_SINGLE_QUOTE &kp DE_CARET &kp BACKSPACE           &mo 1 &kp HOME &kp PAGE_UP           &kp KP_NUMLOCK &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY 
+                &kp DE_LESS_THAN   &kp DE_N1 &kp DE_N2 &kp DE_N3 &kp DE_N4 &kp DE_N5 &kp DE_N6 &kp DE_N7 &kp DE_N8 &kp DE_N9 &kp DE_N0 &kp DE_SINGLE_QUOTE &kp DE_CARET &kp BACKSPACE           &mo 1 &kp HOME &kp PAGE_UP           &kp LOCKING_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY 
                 &kp TAB       &kp DE_Q &kp DE_W &kp DE_E &kp DE_R &kp DE_T &kp DE_Z &kp DE_U &kp DE_I &kp DE_O &kp DE_P &kp DE_U_UMLAUT &kp DE_EXCLAMATION                                      &kp DELETE &kp END &kp PAGE_DOWN     &kp KP_NUMBER_7 &kp KP_NUMBER_8 &kp KP_NUMBER_9 &kp KP_MINUS
                 &kp CAPSLOCK         &kp DE_A &kp DE_S &kp DE_D &kp DE_F &kp DE_G &kp DE_H &kp DE_J &kp DE_K &kp DE_L &kp DE_O_UMLAUT &kp DE_A_UMLAUT &kp DE_DOLLAR &kp ENTER                                                        &kp KP_NUMBER_4 &kp KP_NUMBER_5 &kp KP_NUMBER_6 &kp KP_PLUS
                 &kp LEFT_SHIFT     &kp DE_SECTION &kp DE_Y &kp DE_X &kp DE_C &kp DE_V &kp DE_B &kp DE_N &kp DE_M &kp DE_COMMA &kp DE_PERIOD &kp DE_MINUS &kp RIGHT_SHIFT                              &kp UP_ARROW                 &kp KP_NUMBER_1 &kp KP_NUMBER_2 &kp KP_NUMBER_3 &kp KP_ENTER
