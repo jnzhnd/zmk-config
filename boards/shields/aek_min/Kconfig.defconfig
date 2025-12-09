@@ -3,10 +3,4 @@ if SHIELD_AEK_MIN
 config ZMK_KEYBOARD_NAME
     default "AEK-min"
 
-config SPI
-    default y
-
-config GPIO
-    default y
-
 endif

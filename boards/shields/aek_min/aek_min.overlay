@@ -21,6 +21,27 @@
         zmk,kscan = &kscan0;
     };
 
+    // this aliases turn into C code as HID_USAGE_LED_CAPS_LOCK
+    aliases {
+      led-caps = &led_0;
+      led-num = &led_1;
+      led-scroll = &led_2;
+    };
+
+    leds {
+      compatible = "gpio-leds";
+      status = "okay";
+      led_0: led_0 {
+        gpios = <&pro_micro 46 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+      };
+      led_1: led_1 {
+        gpios = <&pro_micro 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+      };
+      led_2: led_2 {
+        gpios = <&pro_micro 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+      };
+    };
+
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
