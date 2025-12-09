@@ -1,6 +1,0 @@
-if SHIELD_AEK_MIN
-
-config ZMK_KEYBOARD_NAME
-    default "AEK-min"
-
-endif

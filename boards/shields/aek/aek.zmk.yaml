@@ -1,0 +1,10 @@
+file_format: "1"
+id: aek
+name: AEK-II
+type: shield
+url: https://github.com/jnzhnd/zmk-config
+requires:
+  - pro_micro
+features:
+  - keys
+  - studio

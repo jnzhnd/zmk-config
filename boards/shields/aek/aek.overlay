@@ -1,4 +1,4 @@
-#include "aek_min-layouts.dtsi"
+#include "aek-layouts.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 
 &pro_micro_spi {

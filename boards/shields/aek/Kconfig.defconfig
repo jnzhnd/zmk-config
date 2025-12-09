@@ -1,0 +1,6 @@
+if SHIELD_AEK
+
+config ZMK_KEYBOARD_NAME
+    default "AEK-II"
+
+endif
